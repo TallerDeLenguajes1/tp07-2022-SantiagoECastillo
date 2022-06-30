@@ -39,6 +39,7 @@ mostrarPendientes();
 mostrarRealizadas();
 
 buscarPorDescripcion(listaTareasPediente);
+horasTrabajadasTotales(listaTareasRealizada);
 Console.WriteLine("FIN");
 
 
@@ -58,7 +59,7 @@ void mostrarRealizadas(){
 
 void buscarPorDescripcion(List<tarea> listaTareas){
     Console.WriteLine("\nIngrese la descripcion a buscar");
-    string descripcionBuscar = Console.ReadLine();
+    string? descripcionBuscar = Console.ReadLine();
     foreach(tarea tareaX in listaTareas){
         if(tareaX.Descripcion.Contains(descripcionBuscar)){
             Console.WriteLine("\n se encontro la tarea");
@@ -67,53 +68,12 @@ void buscarPorDescripcion(List<tarea> listaTareas){
     }
 }
 
-/*
-string descripcion;
 
-
-var numeroTareas = 3;
-var numeroTareas2 = numeroTareas;
-
-while (numeroTareas2 > 0)
-{
-    Console.WriteLine("Ingrese la descripcion de la tarea " + ID + ": ");
-    descripcion = Console.ReadLine();
-    duracion = new Random().Next(10, 100);
-    tarea nuevaTarea = new tarea(ID, descripcion, duracion);
-    listaTareasPediente.Add(nuevaTarea);
-    ID++;
-    numeroTareas2--;
-}
-
-ID = 0;
-numeroTareas2 = numeroTareas;
-while(numeroTareas2 != 0){
-    Console.WriteLine("---------");
-    Console.WriteLine("ID: " + listaTareasPediente[ID].TareaId);
-    Console.WriteLine("Descripcion: " + listaTareasPediente[ID].descripcion);
-    Console.WriteLine("Duracion: " + listaTareasPediente[ID].duracion);
-    Console.WriteLine("Se realizo la tarea? s/n");
-    string respuesta = Console.ReadLine();
-    if(respuesta == "s"){
-        listaTareasRealizada.Add(listaTareasPediente[ID]);
-        listaTareasPediente.RemoveAt(ID);
+void horasTrabajadasTotales(List<tarea> listaTareas){
+    double total=0;
+    foreach(tarea tareaX in listaTareas){
+        total = total + tareaX.Duracion;
     }
-    numeroTareas2--;
-    ID++;
-}
 
-numeroTareas2 = numeroTareas;
-for(int i=0; i<numeroTareas2; i++){
-    Console.WriteLine("---------Tareas Realizdas-------------");
-    Console.WriteLine("ID: " + listaTareasRealizada[i].TareaId);
-    Console.WriteLine("Descripcion: " + listaTareasRealizada[i].descripcion);
-    Console.WriteLine("Duracion: " + listaTareasRealizada[i].duracion);
+    Console.WriteLine("Horas totales trabajadas: "+ total);
 }
-
-numeroTareas2 = numeroTareas;
-for(int i=0; i<numeroTareas2; i++){
-    Console.WriteLine("---------Tareas Pendientes-------------");
-    Console.WriteLine("ID: " + listaTareasRealizada[i].TareaId);
-    Console.WriteLine("Descripcion: " + listaTareasRealizada[i].descripcion);
-    Console.WriteLine("Duracion: " + listaTareasRealizada[i].duracion);
-}*/
