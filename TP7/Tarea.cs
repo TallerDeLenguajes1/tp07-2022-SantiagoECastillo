@@ -5,8 +5,12 @@ public class tarea{
 
     
     public tarea(int tareaId, string descripcion, int duracion){
-        this.tareaId = tareaId;
-        this.descripcion = descripcion;
-        this.duracion = duracion;
+        this.TareaId = tareaId;
+        this.Descripcion = descripcion;
+        this.Duracion = duracion;
     }
+
+    public int TareaId { get => tareaId; set => tareaId = value; }
+    public string Descripcion { get => descripcion; set => descripcion = value; }
+    public int Duracion { get => duracion; set => duracion = value; }
 }
