@@ -3,7 +3,7 @@
 List<tarea> listaTareasPediente = new List<tarea>();
 List<tarea> listaTareasRealizada = new List<tarea>();
 
-List<int> indices = new List<int>();
+
 int ID = 1;
 Random rnd = new Random();
 //int numeroTareas = rnd.Next(1, 4);//Crea aleatoriamente el numero de tareas
@@ -37,6 +37,8 @@ listaTareasPediente.RemoveAll(listaTareasRealizada.Contains); //elimina en pendi
 
 mostrarPendientes();
 mostrarRealizadas();
+
+buscarPorDescripcion(listaTareasPediente);
 Console.WriteLine("FIN");
 
 
@@ -54,7 +56,16 @@ void mostrarRealizadas(){
     }
 }
 
-
+void buscarPorDescripcion(List<tarea> listaTareas){
+    Console.WriteLine("\nIngrese la descripcion a buscar");
+    string descripcionBuscar = Console.ReadLine();
+    foreach(tarea tareaX in listaTareas){
+        if(tareaX.Descripcion.Contains(descripcionBuscar)){
+            Console.WriteLine("\n se encontro la tarea");
+            Console.WriteLine("ID:" + tareaX.TareaId + " - " + tareaX.Descripcion + " - Duracion:" + tareaX.Duracion);
+        }
+    }
+}
 
 /*
 string descripcion;
